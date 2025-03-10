@@ -2,6 +2,7 @@
 
 import React, { useState } from "react";
 import Sidebar from "@/components/Sidebar";
+import Header from "./_layout/header";
 
 export default function Beranda() {
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
@@ -17,17 +18,7 @@ export default function Beranda() {
 
       {/* Main Content */}
       <div className="flex-1 flex flex-col transition-all duration-300">
-        {/* Header */}
-        <header className="bg-red-600 text-white p-4 flex justify-end items-center fixed top-0 left-0 w-full z-49">
-          <div className="flex items-center gap-4 mr-4">
-            <span>FEBRIAN REZKI HEMETO</span>
-            <img
-              src="/avatar.png"
-              alt="User Avatar"
-              className="w-8 h-8 rounded-full"
-            />
-          </div>
-        </header>
+        <Header />
 
         {/* Main Content */}
         <main className="p-6 bg-gray-100 flex flex-col gap-4 mt-16">
