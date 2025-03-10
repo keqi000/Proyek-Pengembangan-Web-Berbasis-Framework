@@ -3,6 +3,21 @@
 import React, { useState } from "react";
 import Sidebar from "@/components/Sidebar";
 import Header from "./_layout/header";
+import AnnouncementCard, { AnnouncementCardPropType } from "./_component/AnnouncementCard";
+
+
+
+const announcementData: AnnouncementCardPropType[] = [{
+  courseName: 'PENGEMBANGAN APLIKASI WEB',
+  uploadDate: 10000,
+  uploaderName: "XAVERIUS B.N. NAJOAN ST, MT",
+  uploaderPosition: "DOSEN MATAKULIAH"
+}, {
+  courseName: 'KEAMANAN WEB',
+  uploadDate: 10000,
+  uploaderName: "XAVERIUS B.N. NAJOAN ST, MT",
+  uploaderPosition: "DOSEN MATAKULIAH"
+}]
 
 export default function Beranda() {
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
@@ -75,30 +90,14 @@ export default function Beranda() {
               <h3 className="font-bold">PENGUMUMAN</h3>
             </div>
             <div className="bg-white p-4 text-black">
-              <div className="border-b pb-2">
-                <p className="text-green-600 font-bold">
-                  [PENGEMBANGAN APLIKASI WEB]
-                </p>
-                <p>
-                  Oleh:{" "}
-                  <span className="bg-green-600 text-white px-2 py-1 rounded text-sm">
-                    DOSEN MATAKULIAH
-                  </span>{" "}
-                  - XAVERIUS B.N. NAJOAN ST, MT
-                </p>
-                <p className="text-sm">19 Februari 2025</p>
-              </div>
-              <div className="mt-2">
-                <p className="text-green-600 font-bold">[KEAMANAN SIBER]</p>
-                <p>
-                  Oleh:{" "}
-                  <span className="bg-green-600 text-white px-2 py-1 rounded text-sm">
-                    DOSEN MATAKULIAH
-                  </span>{" "}
-                  - XAVERIUS B.N. NAJOAN ST, MT
-                </p>
-                <p className="text-sm">19 Februari 2025</p>
-              </div>
+              {announcementData.map((item: AnnouncementCardPropType, index: number) => (
+                <AnnouncementCard 
+                  key={index}
+                  courseName={item.courseName} 
+                  uploaderName={item.uploaderName} 
+                  uploaderPosition={item.uploaderPosition} 
+                  uploadDate={100000} 
+                />))}
             </div>
           </div>
 
