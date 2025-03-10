@@ -10,7 +10,7 @@ export type AnnouncementCardPropType = {
 export default function AnnouncementCard({courseName, uploaderName, uploadDate, uploaderPosition}: AnnouncementCardPropType){
   return (
       <div className="border-b pb-2">
-        <Link href={"#"} className="text-green-600 font-bold">
+        <Link href={"#"} className="text-green-600 font-bold uppercase">
           {`[${courseName}]`}
         </Link>
         <p>
