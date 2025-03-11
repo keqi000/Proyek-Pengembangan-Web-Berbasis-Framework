@@ -15,6 +15,7 @@ import {
   X,
 } from "lucide-react";
 import Link from "next/link";
+import { cn } from "@/lib/utils";
 
 // 🛠 Definisikan interface untuk props Sidebar
 interface SidebarProps {
@@ -66,9 +67,11 @@ export default function Sidebar({ isOpen, setIsOpen }: SidebarProps) {
     <div className="relative transition-all duration-300">
       {/* Sidebar */}
       <aside
-        className={`fixed top-0 left-0 h-full bg-white shadow-2xl w-64 transform ${
-          isOpen ? "translate-x-0" : "-translate-x-64"
-        } transition-transform duration-300 ease-in-out z-50`}
+        className={cn("-translate-x-64 fixed top-0 left-0 h-full bg-white shadow-2xl w-64 transform",   
+          {
+            "translate-x-0" : isOpen
+          },
+        `transition-transform duration-300 ease-in-out z-50`)}
       >
         {/* Header Sidebar */}
         <div className="bg-red-600 text-white py-4 px-6 flex items-center justify-between">
