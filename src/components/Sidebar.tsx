@@ -16,6 +16,7 @@ import {
 } from "lucide-react";
 import Link from "next/link";
 import { cn } from "@/lib/utils";
+import { usePathname } from "next/navigation";
 
 // 🛠 Definisikan interface untuk props Sidebar
 interface SidebarProps {
@@ -63,6 +64,7 @@ const menuItems = [
 
 // 🛠 Tambahkan tipe props di parameter fungsi Sidebar
 export default function Sidebar({ isOpen, setIsOpen }: SidebarProps) {
+  const pathname = usePathname()
   return (
     <div className="relative transition-all duration-300">
       {/* Sidebar */}
@@ -86,7 +88,7 @@ export default function Sidebar({ isOpen, setIsOpen }: SidebarProps) {
                 <Link
                   href={item.link}
                   className={`flex items-center gap-3 p-3 mx-2 rounded-md transition ${
-                    item.active
+                    item.link === pathname
                       ? "bg-red-600 text-white"
                       : "text-gray-700 hover:bg-gray-200"
                   }`}
